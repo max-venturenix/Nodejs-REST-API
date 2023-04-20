@@ -1,13 +1,13 @@
 import {Router} from 'express';
 
-const {personController} = require('../controllers/personController');
+import PersonController from '../controllers/personController';
 
 export const personRouters = Router();
 
 personRouters.route('/person')
-    .post(personController.createPerson)
-    .get(personController.getAllPeople)
-    .put(personController.updatePerson);
+    .post(PersonController.createPerson)
+    .get(PersonController.getAllPeople)
+    .put(PersonController.updatePerson);
 
 personRouters.route('/person/:hkid')
-    .delete(personController.deletePerson);
+    .delete(PersonController.deletePerson);

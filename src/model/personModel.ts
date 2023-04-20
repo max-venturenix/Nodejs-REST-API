@@ -4,8 +4,8 @@ const {PrismaClient} = require('@prisma/client')
 
 const prisma = new PrismaClient();
 
-export const PersonModel = {
-    createPerson: async (personData: Person) => {
+namespace PersonModel {
+    export const createPerson = async (personData: Person) => {
         try {
             await prisma.person.create({
                 data: {
@@ -19,8 +19,9 @@ export const PersonModel = {
         } finally {
             await prisma.$disconnect()
         }
-    },
-    getAllPeople: async () => {
+    }
+
+    export const getAllPeople = async () => {
         try {
             return await prisma.person.findMany();
         } catch (err) {
@@ -28,8 +29,9 @@ export const PersonModel = {
         } finally {
             await prisma.$disconnect()
         }
-    },
-    updatePerson: async (personData: Person) => {
+    }
+
+    export const updatePerson = async (personData: Person) => {
         try {
             return await prisma.person.update({
                 where: {
@@ -45,8 +47,9 @@ export const PersonModel = {
         } finally {
             await prisma.$disconnect()
         }
-    },
-    deletePerson: async (hkid: string) => {
+    }
+
+    export const deletePerson = async (hkid: string) => {
         try {
             return await prisma.person.delete({
                 where: {
@@ -60,3 +63,5 @@ export const PersonModel = {
         }
     }
 }
+
+export default PersonModel;
