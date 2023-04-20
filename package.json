@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:nodemon": "./node_modules/nodemon/bin/nodemon.js",
+    "start": "ts-node ./src/index.ts",
+    "start:prod": "npm run build && node ./dist/src/server.js",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "@types/node": "^18.15.12",
     "nodemon": "^2.0.22",
     "prisma": "^4.13.0",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }
