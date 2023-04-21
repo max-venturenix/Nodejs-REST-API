@@ -1,6 +1,9 @@
 import express, {Express} from "express";
 import logger from "morgan";
 import {personRouters} from "./routes/personRouters";
+import FirebaseAuthService from "./auth/FirebaseAuthService";
+
+FirebaseAuthService.initializeFirebase();
 
 const app: Express = express();
 
@@ -14,6 +17,8 @@ app.use(express.json());
 
 // Logger middleware
 app.use(logger('dev'));
+
+app.use(FirebaseAuthService.verifyFirebaseIdToken);
 
 // Add this after the middleware part
 app.use(personRouters);

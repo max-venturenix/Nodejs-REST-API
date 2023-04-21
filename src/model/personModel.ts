@@ -16,6 +16,7 @@ namespace PersonModel {
             })
         } catch (err) {
             console.log(err);
+            throw err;
         } finally {
             await prisma.$disconnect()
         }
@@ -26,6 +27,7 @@ namespace PersonModel {
             return await prisma.person.findMany();
         } catch (err) {
             console.log(err);
+            throw err;
         } finally {
             await prisma.$disconnect()
         }
@@ -44,6 +46,7 @@ namespace PersonModel {
             })
         } catch (err) {
             console.log(err);
+            throw err;
         } finally {
             await prisma.$disconnect()
         }
@@ -58,6 +61,7 @@ namespace PersonModel {
             })
         } catch (err) {
             console.log(err);
+            throw err;
         } finally {
             await prisma.$disconnect()
         }
